@@ -4,7 +4,7 @@ This assignment for COMP 426 will help you get started working with Node.js and 
 
 ## DO NOT CLONE THIS REPOSITORY DIRECTLY
 
-Use the GitHub classroom link instead: 
+Use the GitHub classroom link instead: https://classroom.github.com/a/KxHQIQzJ
 
 These links for every assignment are listed in the SECRETS repo: https://github.com/comp426-2022-spring/secrets
 
