@@ -111,7 +111,6 @@ When you are done with that, your `package.json` file should look something like
   ],
   "author": "@jdmar3",
   "license": "GPL-3.0-or-later"
-  }
 }
 ```
 
@@ -149,11 +148,11 @@ If you want a full `.gitignore` for Node, you can use the text in this file: htt
 
 ### Make www directory
 
-Create a directory (folder) inside your repo directory called `www`.
+Make a directory (folder) inside your repo directory called `public`.
 
 This is where we are going to store some HTML. 
 
-In fact, go and grab the `index.html` file from [a00](/a/00/) (the one with the alphabet table) and put it inside your `www` directory right now.
+In fact, go and grab the `index.html` file from [a00](/a/00/) (the one with the alphabet table) and put it inside your `public` directory right now.
 
 We will use that as the HTML that we are serving from our web server.
 
@@ -334,8 +333,6 @@ I will do a walkthrough of this assignment either in class or recorded.
 
 However, I would really encourage you to try it and see what you can come up with before we do that together.
 
-To reiterate: the purpose of this assignment is not to memorize things, but to learn how to think around a problem and come up with a solution, given a set of constraints.
-
-In this case, our constraints are related to doing this task using stuff that is already (mostly) built into Node.
+To reiterate: the purpose of this assignment is not to memorize things, but to learn how to think around a problem and come up with a solution, given ample documentation and no time limit.
 
 > **IMPORTANT:** TRACK YOUR CHANGES. As you work through this assignment, once you get one thing to work, and you test it: commit the change with git. Be intentional about this. This will help you revert to a known working state if you break something as you move to your next step.
