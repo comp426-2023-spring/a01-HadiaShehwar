@@ -219,9 +219,8 @@ It should look like this:
 // Require fs module
 
 // Require minimist module (make sure you install this one via npm).
-// Use minimist to process one argument `--port=` on the command line after `node server.js`.
 
-// Define allowed argument name 'port'.
+// Use minimist to process one argument `--port=` on the command line after `node server.js`.
 
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 3000 if there is no argument given for `--port`.
@@ -231,7 +230,7 @@ It should look like this:
 // The function must read a file located at `./public/index.html` and do some stuff with it.
 // The stuff that should be inside this function is all below.
 
-// If there is an error, put it on the console error, return, and exit with error code 1. 
+// If there is an error, put it on the console error and return. 
 // Do not be nice about exiting.
 
 
@@ -256,6 +255,7 @@ It should look like this:
 
 
 // That's it! You're all done!
+
 ```
 
 You should immediately notice that there is no code here; only comments.
