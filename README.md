@@ -1,31 +1,38 @@
-# a01 Node
+# Assignment 01: Build a web server in Node.js
 
-This assignment for COMP 426 will help you get started working with Node.js and hacking your way through creating a webserver from scratch. 
+This assignment will help you get started working with Node.js by hacking your way through creating a webserver from scratch. 
 
 ## DO NOT CLONE THIS REPOSITORY DIRECTLY
 
 Use the GitHub classroom link instead: 
 
-If you clone this repo directly, it will not be added to the organization as an individual repo associated with your account and you will not be able to push to it.
+**_If you clone this repo directly, it will not be added to the organization as an individual repo associated with your account and you will not be able to push to it._**
 
 # Instructions
 
 ## Build your own web server from scratch!
 
-In this assignment, you will write a script that uses mostly built-in Node.js modules to serve a single web page from a file that you have stored in a `www` subdirectory next to your server file.
+In this assignment, you will write a script that uses mostly built-in Node.js modules to serve a single web page from a file that you have stored in a `public` subdirectory next to your server file.
 
 The cool thing about this assignment is that it should take about 20 lines of code *in toto.*
 
 ### But I don't know how to build a web server?
 
 Yes.
+
 That's right.
+
+You don't.
+
+Yet.
+
 Or maybe you do already?
+
 That's okay, too.
 
 I didn't used to know how to build a web server either, but then I hacked one together and now I know how to do that.
 
-This assignment is an exercise not in programming as much as it is in being able to figure things out based on information that you have complete access to.
+This assignment is an exercise not in programming as much as it is in being able to figure things out based only on an inexhaustible glut of information that you have complete, unfettered access to.
 
 ### If you don't know what you're doing, you can't make mistakes.
 
@@ -52,11 +59,11 @@ I believe in you.
 
 We'll get started like we always will: with GitHub.
 
-Follow the link at the top of this page to accept the assignment through GitHub classroom.
+Follow the link at the top of this page to accept the assignment through GitHub classroom. Click the link to the repository. Get the SSH clone URL.
 
 ### Clone your repository
 
-Using VSCode GUI or git in the terminal, clone your repo locally.
+Using git in the terminal, clone your repo locally.
 
 You should see a couple of files, but it should be mostly empty.
 
@@ -73,10 +80,11 @@ Run `npm init` following and fill in the prompts accordingly.
 
 Make sure to do the following:
 
-1. Set `author` to your name.
-2. Set `main` to `server.js`.
-3. Set `test` to `node server.js`
-2. Set `license` to match the one identified in the `LICENSE` file instead of ISC. 
+1. Give the package whatever `name` you like, "something-something-webserver," or whatever. It doesn't matter what you call it.
+2. Set `author` to your GitHub username.
+3. Set `main` to `server.js`.
+4. Set `test` to `node server.js --port=5555`
+5. Set `license` to match the one identified in the `LICENSE` file instead of ISC. 
 
 To look up the string that you must put to make that change, find the correct identifier at this site: https://spdx.org/licenses/
 
@@ -89,7 +97,7 @@ When you are done with that, your `package.json` file should look something like
   "description": "This package contains a very simple web server that takes one argument for port and then serves index.html in the www directory.",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js",
+    "test": "node server.js --port=5555",
     "start": "node server.js"
   },
   "keywords": [
@@ -101,7 +109,7 @@ When you are done with that, your `package.json` file should look something like
     "args",
     "http"
   ],
-  "author": "John D. Martin III",
+  "author": "@jdmar3",
   "license": "GPL-3.0-or-later"
   }
 }
@@ -109,7 +117,7 @@ When you are done with that, your `package.json` file should look something like
 
 `package.json` is just a configuration file, which means that you can always change it later.
 You do have to be careful when you edit it to ensure that the JSON structure remains intact.
-See the guides for links to JSON validators that you can use: https://comp426.johndmart.in/guide/validators/#json
+See the guides for links to JSON validators that you can use: https://jsononline.net/json-validator
 
 Read through the `npm` documentation to help you better understand what the `init` process is doing and what `package.json` does for you: https://nodejs.dev/learn/an-introduction-to-the-npm-package-manager
 
@@ -283,13 +291,6 @@ Look here for a deeper understanding of dealing with errors:
 
 https://nodejs.dev/learn/error-handling-in-nodejs
 
-~~You are also going to want to make Node exit the process if there is no file available or if there is some other error.
-Like it says in the comments, you don't have to be nice about that.
-Also, remember, that the exit code for "everything is super great" is `0` and the exit code for "oh no" is `1`.~~
-
-~~That's important.~~
-> Do not worry about using process.exit(1) for this assignment since what we really care about here is the error handling itself. 
-
 #### The minimist module
 
 Finally, we want our script to accept a command line argument to set the port number.
@@ -308,17 +309,16 @@ In that example, `process.env.PORT` is available to grab the port as defined in 
 
 Here is the list of things that we are looking for in your `server.js` script:
 
-1. Require http module.
-2. Require fs module.
-3. Require minimist module (make sure you install this one via npm).
+1. Require/import http module.
+2. Require/import fs module.
+3. Require/import minimist module (make sure you install this one via npm).
 4. Use minimist to process one argument `--port=` on the command line after `node server.js`.
-5. Define allowed argument name 'port'.
-6. Define a const `port` using the argument from the command line. 
+6. Define a const `port` using the value in the `--port=` argument from the command line. 
 7. Make this const default to port 3000 if there is no argument given for `--port`.
 8. Use the fs module to create an arrow function using `fs.readFile`.
 Use the documentation for the Node.js `fs` module. 
-The function must read a file located at `./www/index.html` and do some stuff with it.
-9. If there is an error, put it on the console error, and return~~, and exit with error code 1. Do not be nice about exiting~~.
+The function must read a file located at `./public/index.html` and do some stuff with it.
+9. If there is an error, put it on the console error with `console.err().
 10. Define a const `server` as an arrow function using http.createServer. 
 Use the documentation for the node.js http module. 
 The function should have three responses: 
