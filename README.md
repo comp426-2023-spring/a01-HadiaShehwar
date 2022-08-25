@@ -18,17 +18,11 @@ The cool thing about this assignment is that it should take about 20 lines of co
 
 ### But I don't know how to build a web server?
 
-Yes.
-
-That's right.
-
-You don't.
+Yes. That's right. You don't.
 
 Yet.
 
-Or maybe you do already?
-
-That's okay, too.
+Or maybe you do already? That's okay, too.
 
 I didn't used to know how to build a web server either, but then I hacked one together and now I know how to do that.
 
@@ -73,6 +67,8 @@ Like this:
 $ ls
 LICENSE  README.md  server.js.example
 ```
+
+> **IMPORTANT:** TRACK YOUR CHANGES. As you work through this assignment, once you get one thing to work, and you test it: commit the change with git. Be intentional about this. This will help you revert to a known working state if you break something as you move to your next step.
 
 ### Initialize the repo as an NPM package
 
@@ -258,9 +254,9 @@ Get a very basic web server up and running with the example provided in the link
 
 #### The fs module
 
-The next thing that we care about doing is making our web server read from a file and then serve what is in that file instead of just the `res.end(`Hello, world!)` that our basic web server in the example is doing.
+The next thing that we care about doing is making our web server read from a file and then serve what is in that file instead of just the `res.end('Hello, world!')` that our basic web server in the example is doing.
 
-Instead, you are going to read in the data in `./www/index.html` and put that inside `res.end` instead.
+Instead, you are going to read in `./public/index.html` and put that inside `res.end` instead.
 
 Everything you need to be able to do that is available here:
 
@@ -323,16 +319,10 @@ Use the documentation for the node.js http module.
 The function should have three responses: 
 	1. status code 200, 
 	2. set a header with content type `text/html`, and 
-	3. end with the data that you are reading in from ./www/index.html.
+	3. end with the data that you are reading in from ./public/index.html.
 11. Start the `server` const listening on the port defined by argument in your `port` const. 
 12. Put the exact message `Server listening on port ${port}` on the console log.
 
 These are all of the things that are listed in the comments. 
 
-I will do a walkthrough of this assignment either in class or recorded. 
-
-However, I would really encourage you to try it and see what you can come up with before we do that together.
-
 To reiterate: the purpose of this assignment is not to memorize things, but to learn how to think around a problem and come up with a solution, given ample documentation and no time limit.
-
-> **IMPORTANT:** TRACK YOUR CHANGES. As you work through this assignment, once you get one thing to work, and you test it: commit the change with git. Be intentional about this. This will help you revert to a known working state if you break something as you move to your next step.
