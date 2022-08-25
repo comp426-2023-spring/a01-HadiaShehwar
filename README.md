@@ -90,7 +90,7 @@ When you are done with that, your `package.json` file should look something like
 {
   "name": "my-own-private-web-server",
   "version": "0.0.1",
-  "description": "This package contains a very simple web server that takes one argument for port and then serves index.html in the www directory.",
+  "description": "This package contains a very simple web server that takes one argument for port and then serves any files inside the public directory.",
   "main": "server.js",
   "scripts": {
     "test": "node server.js --port=5555",
@@ -142,13 +142,64 @@ This is going to tell `git` not to track anything in that directory.
 
 If you want a full `.gitignore` for Node, you can use the text in this file: https://github.com/github/gitignore/blob/main/Node.gitignore
 
-### Make www directory
+### Make the public directory
 
 Make a directory (folder) inside your repo directory called `public`.
 
 This is where we are going to store some HTML. 
 
-In fact, go and grab the `index.html` file from [a00](/a/00/) (the one with the alphabet table) and put it inside your `public` directory right now.
+Create a new file in the `public` directory called `index.html`. Then put the following HTML code in it. Add rows to the table below so that there is one row for every letter in the alphabet:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alphabet</title>
+    </head>
+    <body>
+        <div>
+            <h1>Alphabet table</h1>
+            <table>
+				<thead>
+  					<tr>
+    					<th>Column 0</th><th>Column 1</th>
+  					</tr>
+				</thead>
+				<tbody>
+  					<tr>
+    					<td>A</td><td></td>
+  					</tr>
+  					<tr>
+    					<td></td><td>B</td>
+  					</tr>
+  					<tr>
+    					<td></td><td>C</td>
+  					</tr>
+  					<tr>
+    					<td></td><td>D</td>
+  					</tr>
+  					<tr>
+    					<td>E</td><td></td>
+  					</tr>
+  					<tr>
+    					<td>F</td><td></td>
+  					</tr>
+  					<tr>
+    					<td></td><td>G</td>
+  					</tr>
+  					<tr>
+    					<td>?</td><td>?</td>
+  					</tr>
+				</tbody>
+			</table>
+        </div>
+    </body>
+</html>
+```
+
+it inside your `public` directory right now.
 
 We will use that as the HTML that we are serving from our web server.
 
@@ -177,7 +228,7 @@ It should look like this:
 
 // Use the fs module to create an arrow function using `fs.readFile`.
 // Use the documentation for the Node.js `fs` module. 
-// The function must read a file located at `./www/index.html` and do some stuff with it.
+// The function must read a file located at `./public/index.html` and do some stuff with it.
 // The stuff that should be inside this function is all below.
 
 // If there is an error, put it on the console error, return, and exit with error code 1. 
@@ -192,7 +243,7 @@ It should look like this:
 // The function should have three responses: 
 // 1. status code 200, 
 // 2. set a header with content type `text/html`, and 
-// 3. end with the data that you are reading in from ./www/index.html.
+// 3. end with the data that you are reading in from ./public/index.html.
 
 
 
