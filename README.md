@@ -132,13 +132,13 @@ node_modules  package.json  package-lock.json  server.js.example
 
 ### Add `.gitignore`
 
-Add a file named `.gitignore` and put `node_modules/` in it:
+Add a file named `.gitignore` and include `node_modules/` on a line in the file:
 
 ```.gitignore
 node_modules/
 ```
 
-This is going to tell `git` not to track anything in that directory.
+This is going to tell `git` not to track any files and directories specified in the the `.gitignore` file. In this case, we will be ignoring the `node_modules` folder.
 
 If you want a full `.gitignore` for Node, you can use the text in this file: https://github.com/github/gitignore/blob/main/Node.gitignore
 
