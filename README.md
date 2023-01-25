@@ -322,12 +322,12 @@ Read the following to better understand what the `fs` module does, beyond just r
 
 (Everything under the "Manipulating Files" header in the navigation in https://nodejs.dev/learn)
 
-https://nodejs.dev/en/learn/nodejs-file-stats/
-https://nodejs.dev/en/learn/nodejs-file-paths/
-https://nodejs.dev/en/learn/working-with-file-descriptors-in-nodejs/
-https://nodejs.dev/en/learn/reading-files-with-nodejs/
-https://nodejs.dev/en/learn/writing-files-with-nodejs/
-https://nodejs.dev/en/learn/working-with-folders-in-nodejs/
+- https://nodejs.dev/en/learn/nodejs-file-stats/
+- https://nodejs.dev/en/learn/nodejs-file-paths/
+- https://nodejs.dev/en/learn/working-with-file-descriptors-in-nodejs/
+- https://nodejs.dev/en/learn/reading-files-with-nodejs/
+- https://nodejs.dev/en/learn/writing-files-with-nodejs/
+- https://nodejs.dev/en/learn/working-with-folders-in-nodejs/
 
 #### Error handling
 
@@ -352,9 +352,9 @@ There are multiple ways to do this, but we are going to use the `minimist` modul
 
 Everything that you need to be able to do that is here:
 
-https://nodejs.dev/en/learn/run-nodejs-scripts-from-the-command-line/
-https://www.npmjs.com/package/minimist
-https://github.com/minimistjs/minimist
+- https://nodejs.dev/en/learn/run-nodejs-scripts-from-the-command-line/ (Read this entire section.)
+- https://www.npmjs.com/package/minimist
+- https://github.com/minimistjs/minimist
 
 > **HINT:** You will need to use `args.port` from your `args` const in order to define a `port` const, but use a logical OR operator `||` to give it the option of defaulting to port 3000 in the case that a port number is not supplied when we run the script. 
 You can use the example that is provided in the link above to figure out how to do this.
