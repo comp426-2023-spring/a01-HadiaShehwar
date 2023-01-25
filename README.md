@@ -328,6 +328,7 @@ Read the following to better understand what the `fs` module does, beyond just r
 - https://nodejs.dev/en/learn/reading-files-with-nodejs/
 - https://nodejs.dev/en/learn/writing-files-with-nodejs/
 - https://nodejs.dev/en/learn/working-with-folders-in-nodejs/
+- https://nodejs.dev/en/api/v18/fs/
 
 #### Error handling
 
