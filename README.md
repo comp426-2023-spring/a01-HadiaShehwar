@@ -293,11 +293,11 @@ We're going to fancy it up a bit, but this is the main event.
 
 Everything you need to know to be able to do that is here: 
 
-https://nodejs.dev/en/learn/build-an-http-server
+https://nodejs.dev/en/learn/#an-example-nodejs-application
 
 More granular documentation of the `http` module is available here:
 
-https://nodejs.dev/en/learn/the-nodejs-http-module
+https://nodejs.dev/en/api/v18/http/
 
 So, start with that.
 
@@ -320,7 +320,14 @@ They do different things, but the end result is the same.
 
 Read the following to better understand what the `fs` module does, beyond just reading files:
 
-https://nodejs.dev/en/learn/the-nodejs-fs-module
+(Everything under the "Manipulating Files" header in the navigation in https://nodejs.dev/learn)
+
+https://nodejs.dev/en/learn/nodejs-file-stats/
+https://nodejs.dev/en/learn/nodejs-file-paths/
+https://nodejs.dev/en/learn/working-with-file-descriptors-in-nodejs/
+https://nodejs.dev/en/learn/reading-files-with-nodejs/
+https://nodejs.dev/en/learn/writing-files-with-nodejs/
+https://nodejs.dev/en/learn/working-with-folders-in-nodejs/
 
 #### Error handling
 
@@ -335,7 +342,7 @@ Pay special attention to the error handling that is happening in the examples on
 
 Look here for a deeper understanding of dealing with errors:
 
-https://nodejs.dev/en/learn/error-handling-in-nodejs
+https://nodejs.dev/en/api/v18/errors/
 
 #### The minimist module
 
@@ -345,7 +352,9 @@ There are multiple ways to do this, but we are going to use the `minimist` modul
 
 Everything that you need to be able to do that is here:
 
-https://nodejs.dev/en/learn/nodejs-accept-arguments-from-the-command-line
+https://nodejs.dev/en/learn/run-nodejs-scripts-from-the-command-line/
+https://www.npmjs.com/package/minimist
+https://github.com/minimistjs/minimist
 
 > **HINT:** You will need to use `args.port` from your `args` const in order to define a `port` const, but use a logical OR operator `||` to give it the option of defaulting to port 3000 in the case that a port number is not supplied when we run the script. 
 You can use the example that is provided in the link above to figure out how to do this.
