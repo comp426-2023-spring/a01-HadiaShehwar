@@ -1,0 +1,92 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Run server listening on randomly assigned port
+      id: run-server-listening-on-randomly-assigned-port
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Run server listening on randomly assigned port
+        setup-command: SHELL=/bin/bash && npm install
+        command: PORT="$(shuf -i 2000-65535 -n 1)"; (timeout --signal=SIGINT 5 node
+          server.js --port=$PORT; exit 0) & sleep 1s && curl -vI http://localhost:${PORT}
+          && sleep 5s
+        input: ''
+        expected-output: "[Pp]ort(\\s|\\S)([0-9]{4,5})"
+        comparison-method: regex
+        timeout: 10
+        max-score: 12500
+    - name: Status code
+      id: status-code
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Status code
+        setup-command: ''
+        command: PORT="$(shuf -i 2000-65535 -n 1)"; (timeout --signal=SIGINT 5 node
+          server.js --port=$PORT; exit 0) & sleep 1s && curl -I http://localhost:${PORT}
+          && sleep 5s
+        input: ''
+        expected-output: HTTP\/(1.1|2)\s*200\s*(OK)?
+        comparison-method: regex
+        timeout: 10
+        max-score: 12500
+    - name: Content type
+      id: content-type
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Content type
+        setup-command: ''
+        command: PORT="$(shuf -i 2000-65535 -n 1)"; (timeout --signal=SIGINT 5 node
+          server.js --port=$PORT; exit 0) & sleep 1s && curl -I http://localhost:${PORT}
+          && sleep 5s
+        input: ''
+        expected-output: 'Content-Type: text\/html'
+        comparison-method: regex
+        timeout: 10
+        max-score: 12500
+    - name: Table check
+      id: table-check
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Table check
+        setup-command: ''
+        command: PORT="$(shuf -i 2000-65535 -n 1)"; (timeout --signal=SIGINT 5 node
+          server.js --port=$PORT; exit 0) & sleep 1s && curl -v http://localhost:${PORT}
+          && sleep 5s
+        input: ''
+        expected-output: "<td>[Zz]<\\/td>"
+        comparison-method: regex
+        timeout: 10
+        max-score: 12500
+    - name: Software version
+      id: software-version
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Software version
+        setup-command: ''
+        command: printf "GH Actions runner software versions\n\n"; printf "SYSTEM:\t$(uname
+          -a)\n"; printf "SHELL:\t[${SHELL}]\n"; printf "GIT:\t[$(which git)] $(git
+          --version)\n"; printf "CURL:\t[$(which curl)] $(curl --version | head -n
+          1)\n"; printf "NODE:\t[$(which node)] node $(node -v)\n"
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        RUN-SERVER-LISTENING-ON-RANDOMLY-ASSIGNED-PORT_RESULTS: "${{steps.run-server-listening-on-randomly-assigned-port.outputs.result}}"
+        STATUS-CODE_RESULTS: "${{steps.status-code.outputs.result}}"
+        CONTENT-TYPE_RESULTS: "${{steps.content-type.outputs.result}}"
+        TABLE-CHECK_RESULTS: "${{steps.table-check.outputs.result}}"
+        SOFTWARE-VERSION_RESULTS: "${{steps.software-version.outputs.result}}"
+      with:
+        runners: run-server-listening-on-randomly-assigned-port,status-code,content-type,table-check,software-version
